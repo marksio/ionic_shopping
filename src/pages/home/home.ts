@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Cart } from '../cart/cart';
+import { Menu } from '../menu/menu';
 import { Deal } from '../deal/deal';
 
 @Component({
@@ -8,7 +9,8 @@ import { Deal } from '../deal/deal';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  rootPage:any = Menu;
+  
   tab1Root = Deal;
   tab2Root = Cart;
 

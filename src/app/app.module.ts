@@ -16,6 +16,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { Menu } from '../pages/menu/menu';
 import { Cart } from '../pages/cart/cart';
 import { Detail } from '../pages/detail/detail';
 import { Deal } from '../pages/deal/deal';
@@ -25,6 +26,7 @@ import { Deal } from '../pages/deal/deal';
   declarations: [
     MyApp,
     HomePage,
+    Menu,
     Detail,
     Cart,
     Deal
@@ -47,6 +49,7 @@ import { Deal } from '../pages/deal/deal';
   entryComponents: [
     MyApp,
     HomePage,
+    Menu,
     Detail,
     Cart,
     Deal
