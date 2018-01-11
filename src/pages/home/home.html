@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Alimama Shopping
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home">Home</ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Cart" tabIcon="cart"><ion-badge *ngIf="itemsInCart">{{itemsInCart}}</ion-badge>Cart</ion-tab>
+  </ion-tabs>
+</ion-content>
