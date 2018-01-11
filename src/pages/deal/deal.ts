@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the Deal page.
@@ -17,7 +18,7 @@ export class Deal {
   items: Object[] = []
   itemsInCart: Object[] = []
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
     this.items = [
       {id: 1, img: 'http://lorempixel.com/200/200', title: 'T-Shirt', price: '132', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0 },
       {id: 2, img: 'http://lorempixel.com/201/201', title: 'Smart Phone', price: '1699', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0 },
@@ -39,12 +40,24 @@ export class Deal {
     item.quantityInCart += 1;
     item.sum = item.price*item.quantityInCart;
     this.itemsInCart.push(item);
+    let toast = this.toastCtrl.create({
+      message: 'Added to Cart',
+      duration: 3000,
+      position: "top"
+    });
+    toast.present();
   }
 
   reduceCart(item) {
     item.quantityInCart -= 1;
     item.sum = item.price*item.quantityInCart;
     this.itemsInCart.push(item);
+    let toast = this.toastCtrl.create({
+      message: 'Remove from Cart',
+      duration: 3000,
+      position: "top"
+    });
+    toast.present();
   }
   
   // onLoadCart() {
