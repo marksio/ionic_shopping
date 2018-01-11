@@ -1,9 +1,3 @@
-<ion-content>
-  <ion-tabs>
-    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home">Home</ion-tab>
-    <ion-tab [root]="tab2Root" tabTitle="Cart" tabIcon="cart">Cart</ion-tab>
-  </ion-tabs>
-</ion-content>   
 <ion-menu [content]="content">
     <ion-header>
       <ion-toolbar>
@@ -20,6 +14,6 @@
       </ion-list>
     </ion-content>
   </ion-menu>
-
-<!-- main navigation -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+   
+  <!-- main navigation -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
