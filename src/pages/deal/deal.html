@@ -24,7 +24,7 @@
   <ion-list *ngFor="let item of items" ng-model="">
     <ion-item>
       <ion-thumbnail item-start>
-        <img src="{{item.img}}" height="auto" width="auto" imageViewer />
+        <img src="{{item.img}}" height="auto" width="auto"/>
       </ion-thumbnail>
       <h1>{{item.title}}</h1>
       <h2>{{item.currency}} {{item.price}} 
@@ -60,11 +60,4 @@
       </button>
     </ion-item>
   </ion-list> -->
-  <script id="image-modal.html" type="text/ng-template">
-    <div class="modal image-modal transparent" ng-click="closeModal()">
-        <ion-pane class="transparent">
-           <img ng-src="{{imageSrc}}" class="fullscreen-image"/>
-        </ion-pane>
-    </div>
-</script>
 </ion-content>
