@@ -1,25 +1,7 @@
+<page-menu></page-menu>
 <ion-content>
   <ion-tabs>
     <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home">Home</ion-tab>
     <ion-tab [root]="tab2Root" tabTitle="Cart" tabIcon="cart">Cart</ion-tab>
   </ion-tabs>
-</ion-content>   
-<ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-   
-    <ion-content>
-      <ion-list>
-        <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
-            <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
-            {{ p.title }}
-          </button>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-
-<!-- main navigation -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+</ion-content>

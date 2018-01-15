@@ -1,9 +1,10 @@
-import { Cart } from './../cart/cart';
-import { Deal } from './../deal/deal';
-import { HomePage } from './../home/home';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, Nav } from 'ionic-angular';
- 
+import { Cart } from '../cart/cart';
+import { Deal } from '../deal/deal';
+import { HomePage } from '../home/home';
+
+
 export interface PageInterface {
   title: string;
   pageName: string;
@@ -18,16 +19,13 @@ export interface PageInterface {
   templateUrl: 'menu.html',
 })
 export class Menu {
-  // Basic root for our content view
-  rootPage = 'HomePage';
- 
+
   // Reference to the app's root nav
   @ViewChild(Nav) nav: Nav;
  
   pages: PageInterface[] = [
     { title: 'Home', pageName: 'HomePage', tabComponent: 'Deal', index: 0, icon: 'home' },
-    { title: 'Cart', pageName: 'Cart', tabComponent: 'Cart', index: 1, icon: 'contacts' },
-    { title: 'Special', pageName: 'SpecialPage', icon: 'shuffle' },
+    { title: 'Cart', pageName: 'HomePage', tabComponent: 'Cart', index: 1, icon: 'cart' },
   ];
  
   constructor(public navCtrl: NavController) { }

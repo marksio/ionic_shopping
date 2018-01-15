@@ -10,7 +10,7 @@
     </ion-navbar>
   </ion-header>   
     
-<ion-content>
+<ion-content ng-controller="FullscreenImageCtrl">
     <ion-searchbar (ionInput)="getItems($event)" placeholder="Search in Alimama"></ion-searchbar>
   
     <ion-item>
@@ -21,21 +21,26 @@
         <ion-option value="computer">Computer Accessories</ion-option>
       </ion-select>
     </ion-item>
-  <ion-list *ngFor="let item of items">
+  <ion-list *ngFor="let item of items" ng-model="">
     <ion-item>
       <ion-thumbnail item-start>
-        <a href=""><img src="{{item.img}}" height="auto" width="auto"/></a>
+        <img src="{{item.img}}" height="auto" width="auto" imageViewer />
       </ion-thumbnail>
       <h1>{{item.title}}</h1>
-      <p>{{item.currency}} {{item.price}} 
+      <h2>{{item.currency}} {{item.price}} 
         <button *ngIf="item.quantityInCart" (click)="reduceCart(item)" color="light" ion-button small>
           X {{item.quantityInCart}} = {{item.currency}} {{item.sum}}
         </button>  
-      </p>
-      <p>{{item.desc}}</p>      
-      <button (click)="addToCart(item)" ion-button icon-left small float-right>
+      </h2>
+      <label *ngIf="item.promo">
+          {{item.promo}}<br/>
+      </label>
+      <label *ngIf="item.np">
+          NP: {{item.currency}} {{item.np}}
+      </label>
+      <button (click)="addToCart(item); add($event)" ion-button icon-left small float-right value="{{item.id}}">
         <ion-icon name="add"></ion-icon>
-        Add to Cart
+          Add to Cart
       </button>
     </ion-item>
   </ion-list>
@@ -55,4 +60,11 @@
       </button>
     </ion-item>
   </ion-list> -->
+  <script id="image-modal.html" type="text/ng-template">
+    <div class="modal image-modal transparent" ng-click="closeModal()">
+        <ion-pane class="transparent">
+           <img ng-src="{{imageSrc}}" class="fullscreen-image"/>
+        </ion-pane>
+    </div>
+</script>
 </ion-content>
