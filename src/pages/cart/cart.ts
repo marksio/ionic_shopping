@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {AngularFireObject} from 'angularfire2/database';
 
 /**
  * Generated class for the Cart page.

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ImageViewerController } from "ionic-img-viewer";
+
 /**
  * Generated class for the Detail page.
  *
@@ -13,11 +15,12 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class Detail {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public imageViewerCtrl: ImageViewerController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Detail');
+  onClick(imageToView) {
+    const viewer = this.imageViewerCtrl.create(imageToView)
+    viewer.present();
   }
 
 }
