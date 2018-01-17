@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ImageViewerController } from "ionic-img-viewer";
+// import { ImageViewerController } from "ionic-img-viewer";
 
 /**
  * Generated class for the Detail page.
@@ -14,13 +14,17 @@ import { ImageViewerController } from "ionic-img-viewer";
   templateUrl: 'detail.html',
 })
 export class Detail {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public imageViewerCtrl: ImageViewerController) {
+  private myVar: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams) {//, public imageViewerCtrl: ImageViewerController) {
+    let id = navParams.get('id');
+    console.log('at details, the id is');
+    console.log(id);
   }
 
   onClick(imageToView) {
-    const viewer = this.imageViewerCtrl.create(imageToView)
-    viewer.present();
+
+    // const viewer = this.imageViewerCtrl.create(imageToView)
+    // viewer.present();
   }
 
 }
