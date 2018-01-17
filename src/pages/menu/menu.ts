@@ -39,8 +39,10 @@ export class Menu {
     }
  
     // The active child nav is our Tabs Navigation
-    if (this.nav.getActiveChildNav() && page.index != undefined) {
-      this.nav.getActiveChildNav().select(page.index);
+    if (this.nav.getActiveChildNavs() && page.index != undefined) {
+      console.log('this.nav.getActiveChildNavs()');
+      console.log(this.nav.getActiveChildNav());
+      this.nav.getActiveChildNavs()[0].select(page.index);
     } else {
       // Tabs are not active, so reset the root page 
       // In this case: moving to or from SpecialPage
@@ -50,7 +52,7 @@ export class Menu {
  
   isActive(page: PageInterface) {
     // Again the Tabs Navigation
-    let childNav = this.nav.getActiveChildNav();
+    let childNav = this.nav.getActiveChildNavs()[0];
  
     if (childNav) {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {

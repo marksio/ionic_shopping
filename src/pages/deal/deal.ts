@@ -2,6 +2,8 @@ import { Firebase } from '../../providers/firebase';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { Detail } from '../detail/detail';
+import { Cart } from '../cart/cart';
 
 /**
  * Generated class for the Deal page.
@@ -47,9 +49,8 @@ export class Deal {
     toast.present();
   }
 
-  add (event) {
-    // this.itemsInCart = this.navParams.event;
-    console.log(this.navParams.get(event));
+  add (id) {
+    this.navCtrl.push(Cart, { id: id });
   }
 
   reduceCart(item) {
@@ -64,6 +65,11 @@ export class Deal {
     toast.present();
   }
   
+  viewItem(id) {
+    console.log('myEvent');
+    console.log(id);
+    this.navCtrl.push(Detail, { id: id });
+  }
   // onLoadCart() {
   //   this.navCtrl.push(Cart);
   // }
