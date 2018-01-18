@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-// import { ImageViewerController } from "ionic-img-viewer";
+import { globalVariable } from '../../providers/globalVariable';
+import { ImageViewerController } from "ionic-img-viewer";
 
 /**
  * Generated class for the Detail page.
@@ -15,16 +16,45 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class Detail {
   private myVar: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {//, public imageViewerCtrl: ImageViewerController) {
+  items: Object[] = []
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public globalVariable: globalVariable, public imageViewerCtrl: ImageViewerController) {//, public imageViewerCtrl: ImageViewerController) {
     let id = navParams.get('id');
-    console.log('at details, the id is');
-    console.log(id);
+    this.allItem(id);
   }
 
   onClick(imageToView) {
-
-    // const viewer = this.imageViewerCtrl.create(imageToView)
-    // viewer.present();
+    const viewer = this.imageViewerCtrl.create(imageToView)
+    viewer.present();
   }
+
+  allItem (id) {
+    switch (id) {
+      case 1 : {
+        this.items = [{id: 1, img: 'http://lorempixel.com/200/200', title: 'T-Shirt', price: 132, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "10% off", np: 135 }];
+        this.items.push(this.items);
+        console.log("Hello");
+        break;
+      }
+      
+    }
+    this.items = [
+      {id: 1, img: 'http://lorempixel.com/200/200', title: 'T-Shirt', price: '132', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "10% off", np: "135" },
+      {id: 2, img: 'http://lorempixel.com/201/201', title: 'Smart Phone', price: '1699', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "Buy 3 Free 1", np: "" },
+      {id: 3, img: 'http://lorempixel.com/202/202', title: 'Camera', price: '123', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "" },
+      {id: 4, img: 'http://lorempixel.com/203/203', title: 'T-Shirt', price: '132', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "15% off", np: "145" },
+      {id: 5, img: 'http://lorempixel.com/204/204', title: 'Smart Phone', price: '1699', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "" },
+      {id: 6, img: 'http://lorempixel.com/205/205', title: 'Camera', price: '123', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "30% off", np: "160" },
+      {id: 7, img: 'http://lorempixel.com/206/206', title: 'T-Shirt', price: '132', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "" },
+      {id: 8, img: 'http://lorempixel.com/207/207', title: 'Smart Phone', price: '1699', desc: 'Very Good', currency: "RM" , quantityInCart: 0, sum: 0, promo: "Buy 1 Free 1", np: "" },
+      {id: 9, img: 'http://lorempixel.com/208/208', title: 'Camera', price: '123', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "" },
+      {id: 10, img: 'http://lorempixel.com/209/209', title: 'iPhone', price: '3424', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "" }
+    ];
+  }
+
+  addToCart(id) {
+
+  }
+  
 
 }

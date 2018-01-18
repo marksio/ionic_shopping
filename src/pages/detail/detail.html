@@ -12,19 +12,19 @@
   
   <ion-content class="bg-style"  >
   
-      <ion-card *ngIf='product'>
+      <ion-card *ngIf='items.title'>
         <ion-card-header>  
-          <img src="" height="auto" width="auto" imageViewer />
+          <img src="{{items.img}}" height="auto" width="auto" imageViewer />
         </ion-card-header>
   
   
         <ion-card-content>
-          <h2> <b>name </b> </h2>
-          <p> description </p>
+          <h2> <b>{{items.title}}</b> </h2>
+          <p> {{items.desc}} </p>
         </ion-card-content>
       </ion-card>
   
-      <ion-fab right bottom (click)="addToCart()">
+      <ion-fab right bottom (click)="addToCart(item.id)">
         <button ion-fab color="danger"><ion-icon name="ios-cart" ></ion-icon></button>
       </ion-fab>
   

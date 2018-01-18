@@ -1,7 +1,7 @@
-<page-menu></page-menu>
+<!-- <page-menu></page-menu> -->
 <ion-content>
   <ion-tabs>
     <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home">Home</ion-tab>
-    <ion-tab [root]="tab2Root" tabTitle="Cart" tabIcon="cart">Cart</ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Cart" tabIcon="cart" tabBadge="{{globalVariable.cartSumCount > 0 ? globalVariable.cartSumCount : null}}" tabBadgeStyle="danger">Cart</ion-tab>
   </ion-tabs>
 </ion-content>

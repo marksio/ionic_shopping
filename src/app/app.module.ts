@@ -3,8 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-// import { IonicImageViewerModule } from 'ionic-img-viewer';
-// import { ImageViewerController } from "ionic-img-viewer";
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -25,6 +24,7 @@ import { Menu } from '../pages/menu/menu';
 import { Cart } from '../pages/cart/cart';
 import { Detail } from '../pages/detail/detail';
 import { Deal } from '../pages/deal/deal';
+import { globalVariable } from '../providers/globalVariable';
 
 
 @NgModule({
@@ -35,15 +35,12 @@ import { Deal } from '../pages/deal/deal';
     Detail,
     Cart,
     Deal
-    
-    //,ImageViewerController
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    //IonicImageViewerModule,
-    //ImageViewerController,
+    IonicImageViewerModule,
     AngularFireModule.initializeApp({         //<----ENTER FIREBASE CREDENTIAL HERE
       apiKey: "AIzaSyDj0up1H3dpAJSdcWe4bq2eAG6QNTY1e7k",
       authDomain: "shopping-215.firebaseapp.com",
@@ -68,6 +65,7 @@ import { Deal } from '../pages/deal/deal';
     StatusBar,
     SplashScreen,
     Firebase,
+    globalVariable,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

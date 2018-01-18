@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { Detail } from '../detail/detail';
 import { Cart } from '../cart/cart';
+import { globalVariable } from '../../providers/globalVariable';
 
 /**
  * Generated class for the Deal page.
@@ -21,7 +22,7 @@ export class Deal {
   items: Object[] = []
   itemsInCart: Object[] = []
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public globalVariable : globalVariable ) {
     
     this.items = [
       {id: 1, img: 'http://lorempixel.com/200/200', title: 'T-Shirt', price: '132', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "10% off", np: "135" },
@@ -32,42 +33,43 @@ export class Deal {
       {id: 6, img: 'http://lorempixel.com/205/205', title: 'Camera', price: '123', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "30% off", np: "160" },
       {id: 7, img: 'http://lorempixel.com/206/206', title: 'T-Shirt', price: '132', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "" },
       {id: 8, img: 'http://lorempixel.com/207/207', title: 'Smart Phone', price: '1699', desc: 'Very Good', currency: "RM" , quantityInCart: 0, sum: 0, promo: "Buy 1 Free 1", np: "" },
-      {id: 9, img: 'http://lorempixel.com/208/208', title: 'Camera', price: '123', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "" }
+      {id: 9, img: 'http://lorempixel.com/208/208', title: 'Camera', price: '123', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "" },
+      {id: 10, img: 'http://lorempixel.com/209/209', title: 'iPhone', price: '3424', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "" }
     ];
     // this.navParams.get
   }
 
   addToCart(item){
     item.quantityInCart += 1;
+    this.globalVariable.cartSumCount += 1;
     item.sum = item.price*item.quantityInCart;
     // this.itemsInCart.push(item);
     let toast = this.toastCtrl.create({
       message: 'Added to Cart',
       duration: 3000,
-      position: "top"
+      position: "center"
     });
     toast.present();
   }
 
   add (id) {
-    this.navCtrl.push(Cart, { id: id });
+    // this.navCtrl.push(Cart, { id: id });
   }
 
   reduceCart(item) {
     item.quantityInCart -= 1;
+    this.globalVariable.cartSumCount -= 1;
     item.sum = item.price*item.quantityInCart;
     this.itemsInCart.push(item);
     let toast = this.toastCtrl.create({
       message: 'Remove from Cart',
       duration: 3000,
-      position: "top"
+      position: "center"
     });
     toast.present();
   }
   
   viewItem(id) {
-    console.log('myEvent');
-    console.log(id);
     this.navCtrl.push(Detail, { id: id });
   }
   // onLoadCart() {

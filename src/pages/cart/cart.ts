@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { globalVariable } from '../../providers/globalVariable';
 
 /**
  * Generated class for the Cart page.
@@ -17,7 +18,7 @@ export class Cart {
   items: Object[] = []
   itemsInCart: Object[] = []
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public globalVariable: globalVariable) {
   }
 
   ionViewDidLoad() {
