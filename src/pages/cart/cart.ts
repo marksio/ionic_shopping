@@ -19,6 +19,8 @@ export class Cart {
   itemsInCart: Object[] = []
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public globalVariable: globalVariable) {
+    this.globalVariable.cartSumCount = 0;
+    this.globalVariable.cart;
   }
 
   ionViewDidLoad() {

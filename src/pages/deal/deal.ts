@@ -43,11 +43,10 @@ export class Deal {
     item.quantityInCart += 1;
     this.globalVariable.cartSumCount += 1;
     item.sum = item.price*item.quantityInCart;
-    // this.itemsInCart.push(item);
     let toast = this.toastCtrl.create({
       message: 'Added to Cart',
-      duration: 3000,
-      position: "center"
+      duration: 500,
+      position: "top"
     });
     toast.present();
   }
@@ -63,8 +62,8 @@ export class Deal {
     this.itemsInCart.push(item);
     let toast = this.toastCtrl.create({
       message: 'Remove from Cart',
-      duration: 3000,
-      position: "center"
+      duration: 500,
+      position: "top"
     });
     toast.present();
   }

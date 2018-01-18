@@ -12,21 +12,31 @@
   
   <ion-content class="bg-style"  >
   
-      <ion-card *ngIf='items.title'>
+      <ion-card *ngIf='items'>
         <ion-card-header>  
           <img src="{{items.img}}" height="auto" width="auto" imageViewer />
         </ion-card-header>
   
-  
         <ion-card-content>
           <h2> <b>{{items.title}}</b> </h2>
+          <p> {{items.currency}} {{items.price}} </p>
+          <label *ngIf="items.promo">
+            {{items.promo}}<br/>
+          </label>
+          <label *ngIf="items.np">
+            NP: {{items.currency}} {{items.np}}
+          </label>
           <p> {{items.desc}} </p>
         </ion-card-content>
       </ion-card>
+      <ion-col *ngIf="items.quantityInCart">
+        <button (click)="reduceCart(items.id)" color="light" ion-button color="danger" small style="z-index:9999;">
+            <ion-icon name="close"></ion-icon> &nbsp;&nbsp; {{items.currency}} {{items.sum}} 
+        </button>
+        <ion-badge>{{items.quantityInCart}}</ion-badge>
+      </ion-col>
   
-      <ion-fab right bottom (click)="addToCart(item.id)">
+      <ion-fab right bottom (click)="addToCart(items.id)">
         <button ion-fab color="danger"><ion-icon name="ios-cart" ></ion-icon></button>
       </ion-fab>
-  
-  </ion-content>
-  
+  </ion-content>  
