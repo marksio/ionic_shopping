@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class globalVariable {
   public cartSumCount : number;
-  public cart : any[][];
+  public cart : any[][][];
 
   constructor( ) {        
   }
