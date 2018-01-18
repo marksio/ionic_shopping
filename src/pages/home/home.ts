@@ -17,8 +17,6 @@ export class HomePage {
   items: Object[] = []
   itemsInCart: Object[] = []
 
-  badgeCount: any;
-
   constructor(public navCtrl: NavController, public globalVariable: globalVariable) {
     this.globalVariable.cartSumCount = 0;
   }
