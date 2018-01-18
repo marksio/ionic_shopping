@@ -41,8 +41,8 @@ export class Deal {
 
   addToCart(item){
     item.quantityInCart += 1;
-    this.globalVariable.cartSumCount += 1;
     item.sum = item.price*item.quantityInCart;
+    // this.itemsInCart.push(item);
     let toast = this.toastCtrl.create({
       message: 'Added to Cart',
       duration: 500,
@@ -51,13 +51,13 @@ export class Deal {
     toast.present();
   }
 
-  add (id) {
-    // this.navCtrl.push(Cart, { id: id });
+  add (id, quantityInCart, sum) {
+    this.globalVariable.cartSumCount += 1;
+    console.log(this.globalVariable.cart=[[id],[quantityInCart],[sum]]);
   }
 
   reduceCart(item) {
     item.quantityInCart -= 1;
-    this.globalVariable.cartSumCount -= 1;
     item.sum = item.price*item.quantityInCart;
     this.itemsInCart.push(item);
     let toast = this.toastCtrl.create({
@@ -67,9 +67,14 @@ export class Deal {
     });
     toast.present();
   }
+
+  reduce (id, quantityInCart, sum) {
+    this.globalVariable.cartSumCount -= 1;
+    console.log(this.globalVariable.cart=[[id],[quantityInCart], [sum]]);
+  }
   
-  viewItem(id) {
-    this.navCtrl.push(Detail, { id: id });
+  viewItem(id, quantityInCart, sum) {
+    this.navCtrl.push(Detail, { id: id, quantityInCart: quantityInCart, sum: sum });
   }
   // onLoadCart() {
   //   this.navCtrl.push(Cart);

@@ -25,12 +25,12 @@
     <ion-item>
       <ion-grid>
         <ion-row>
-          <ion-col (click)="viewItem(item.id)">
+          <ion-col (click)="viewItem(item.id, item.quantityInCart, item.sum)">
               <ion-thumbnail item-start>
                 <img src="{{item.img}}" height="auto" width="auto" />
               </ion-thumbnail>
           </ion-col>
-          <ion-col (click)="viewItem(item.id)">
+          <ion-col (click)="viewItem(item.id, item.quantityInCart, item.sum)">
               <h1>{{item.title}}</h1>
               <h2>{{item.currency}} {{item.price}}</h2>
               <label *ngIf="item.promo">
@@ -41,12 +41,12 @@
               </label>
           </ion-col>
           <ion-col>
-              <button (click)="addToCart(item); add(item.id)" ion-button icon-left small float-right value="{{item.id}}" style="z-index:9999;">
+              <button (click)="addToCart(item); add(item.id, item.quantityInCart, item.sum)" ion-button icon-left small float-right value="{{item.id}}" style="z-index:9999;">
                 <ion-icon name="add"></ion-icon>
                   Add to Cart
               </button>
               <ion-col *ngIf="item.quantityInCart">
-                <button (click)="reduceCart(item)" color="light" ion-button color="danger" small style="z-index:9999;">
+                <button (click)="reduceCart(item); reduce(item.id, item.quantityInCart, item.sum)" color="light" ion-button color="danger" small style="z-index:9999;">
                     <ion-icon name="close"></ion-icon> &nbsp;&nbsp; {{item.currency}} {{item.sum}} 
                 </button>
                 <ion-badge>{{item.quantityInCart}}</ion-badge>
