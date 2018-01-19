@@ -45,7 +45,7 @@
                 <ion-icon name="add"></ion-icon>
                   Add to Cart
               </button>
-              <ion-col *ngIf="item.quantityInCart">
+              <ion-col *ngIf="item.quantityInCart > 0">
                 <button (click)="reduceToCart(item); reduceGlobal(item.id, item.title, item.img, item.quantityInCart, item.sum, item.price)" color="light" ion-button color="danger" small style="z-index:9999;">
                     <ion-icon name="close"></ion-icon> &nbsp;&nbsp; {{item.currency}} {{item.sum}} 
                 </button>

@@ -154,4 +154,9 @@ export class Detail {
     this.globalVariable.cartSumCount -= 1;
     console.log(this.globalVariable.cart=[[id],[title],[img],[quantityInCart], [sum], [price]]);
   }
+
+  ionViewWillLeave() {
+    this.globalVariable.quantityInCart = this.items.quantityInCart;
+    this.globalVariable.itemId = this.items.id;
+  }
 }

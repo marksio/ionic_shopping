@@ -9,8 +9,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class globalVariable {
   public cartSumCount : number;
-  public cart : any[][][][][];
-  public itemId: number[];
+  public cart : any[] = [];
+  public itemId: number;
   public itemQuantity: number[];
   public itemSum: number[];
   public quantityInCart: number
@@ -28,6 +28,6 @@ export class globalVariable {
     {id: 10, img: 'http://lorempixel.com/209/209', title: 'iPhone', price: '3424', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "" }
   ];
 
-  constructor( ) {        
+  constructor( ) {     
   }
 }

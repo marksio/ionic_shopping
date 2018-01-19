@@ -11,7 +11,7 @@
           
     <ion-content>
         <ion-list>
-            <ion-item *ngFor="let item of globalVariable.cart">
+            <ion-item *ngFor="let item of (globalVariable.cart)">
                 <ion-thumbnail item-left>            
                     <img src="{{item.img}}">
                 </ion-thumbnail>
@@ -31,16 +31,16 @@
                 </button>
             </ion-item>
         
-            <ion-item *ngIf="(item | async)?.length">
+            <ion-item *ngIf="globalVariable.cartSumCount>0">
                 <h2>Grand Total</h2> 
                 <h2 item-right >abc</h2>
             </ion-item>
             
-            <ion-item *ngIf="!(item | async)?.length">
+            <ion-item *ngIf="globalVariable.cartSumCount==0">
                 <h2 class="center">Cart is empty</h2>       
             </ion-item>
         
-            <button fixed ion-button icon-start block color="light" (click)="checkout()">
+            <button fixed ion-button icon-start block color="light" (click)="checkout()" *ngIf="globalVariable.cartSumCount>0">
                 <ion-icon name="ios-cart"></ion-icon>
                 Checkout
             </button>   
