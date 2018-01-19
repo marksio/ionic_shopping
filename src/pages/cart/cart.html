@@ -11,11 +11,11 @@
           
     <ion-content>
         <ion-list>
-            <ion-item>
+            <ion-item *ngFor="let item of globalVariable.cart">
                 <ion-thumbnail item-left>            
-                    <img src="">
+                    <img src="{{item.img}}">
                 </ion-thumbnail>
-                <h2>Item name</h2>
+                <h2>{{item.title}}</h2>
                 <p>Total</p>
             
                 <button ion-button clear item-right (click)="increment(item)" >
@@ -31,12 +31,12 @@
                 </button>
             </ion-item>
         
-            <ion-item>
+            <ion-item *ngIf="(item | async)?.length">
                 <h2>Grand Total</h2> 
                 <h2 item-right >abc</h2>
             </ion-item>
             
-            <ion-item >
+            <ion-item *ngIf="!(item | async)?.length">
                 <h2 class="center">Cart is empty</h2>       
             </ion-item>
         
