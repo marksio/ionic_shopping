@@ -51,12 +51,12 @@ export class Deal {
     toast.present();
   }
 
-  add (id, quantityInCart, sum) {
+  addGlobal (id, title, img, quantityInCart, sum, price) {
     this.globalVariable.cartSumCount += 1;
-    console.log(this.globalVariable.cart=[[id],[quantityInCart],[sum]]);
+    console.log(this.globalVariable.cart=[[id],[title],[img],[quantityInCart], [sum], [price]]);
   }
 
-  reduceCart(item) {
+  reduceToCart(item) {
     item.quantityInCart -= 1;
     item.sum = item.price*item.quantityInCart;
     this.itemsInCart.push(item);
@@ -68,13 +68,13 @@ export class Deal {
     toast.present();
   }
 
-  reduce (id, quantityInCart, sum) {
+  reduceGlobal (id, title, img, quantityInCart, sum, price) {
     this.globalVariable.cartSumCount -= 1;
-    console.log(this.globalVariable.cart=[[id],[quantityInCart], [sum]]);
+    console.log(this.globalVariable.cart=[[id],[title],[img],[quantityInCart], [sum], [price]]);
   }
   
-  viewItem(id, quantityInCart, sum) {
-    this.navCtrl.push(Detail, { id: id, quantityInCart: quantityInCart, sum: sum });
+  viewItem(id, title, img, quantityInCart, sum, price) {
+    this.navCtrl.push(Detail, { id: id, title: title, img:img ,quantityInCart: quantityInCart, sum: sum, price: price });
   }
   // onLoadCart() {
   //   this.navCtrl.push(Cart);
