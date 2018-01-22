@@ -1,5 +1,5 @@
 import { Firebase } from '../../providers/firebase';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { Detail } from '../detail/detail';
@@ -18,8 +18,10 @@ import { globalVariable } from '../../providers/globalVariable';
   templateUrl: 'deal.html',
 })
 export class Deal {
+  @ViewChild('mySearchbar') mySearchbar;
 
-  items: Object[] = []
+  items: any[] = []
+  searchItems: any[] = [];
   itemsInCart: Object[] = []
   itemIndex: number = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public globalVariable : globalVariable ) {
@@ -36,6 +38,7 @@ export class Deal {
       {id: 9, img: 'http://lorempixel.com/208/208', title: 'Camera', price: '123', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: []  },
       {id: 10, img: 'http://lorempixel.com/209/209', title: 'iPhone', price: '3424', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: []  }
     ];
+    this.searchItems = this.items;
     // this.navParams.get
   }
 
@@ -44,8 +47,7 @@ export class Deal {
     item.sum = item.price*item.quantityInCart;
     let newCartItem = { itemID: item.id, id : this.itemIndex++, quantityInCart: item.quantityInCart, price: item.price };
     item.cart.push(newCartItem);
-    //this.globalVariable.cart.push(newCartItem);
-    console.log(newCartItem);
+    this.globalVariable.cart.push(item);
     let toast = this.toastCtrl.create({
       message: 'Added to Cart',
       duration: 500,
@@ -58,7 +60,8 @@ export class Deal {
     this.globalVariable.cartSumCount += 1;
   }
 
-  reduceToCart(item) {
+  removeFromCart(item) {
+    this.globalVariable.cart.splice(this.globalVariable.cart.indexOf(item), 1);
     item.quantityInCart -= 1;
     item.sum = item.price*item.quantityInCart;
     this.itemsInCart.push(item);
@@ -95,5 +98,29 @@ export class Deal {
       this.globalVariable.quantityInCart = 0;
       this.globalVariable.itemId = 0;
     }
+  }
+
+  ionViewWillLeave() {
+    //console.log(this.globalVariable.cart.push([this.items.id],[this.items.title],[this.items.price],[this.items.sum],[]));
+    //this.globalVariable.itemId = this.items.id;
+  }
+
+  getItems(event) {
+    let searchCriteria = this.mySearchbar.value;
+    console.log('searchCriteria');
+    console.log(searchCriteria);
+    //let filtered = this.items.filter(a => a.title.includes(searchCriteria));
+    let filtered = this.items.filter((item) => { 
+      return ((item.title.toLowerCase().indexOf(searchCriteria.toLowerCase()) > -1)); 
+    });
+
+    this.searchItems = filtered;
+    console.log('my filtered array');
+    console.log(filtered);
+
+  }
+
+  applyCategoryFilter() {
+    
   }
 }
