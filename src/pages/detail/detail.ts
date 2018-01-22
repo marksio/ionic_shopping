@@ -124,6 +124,7 @@ export class Detail {
   // }
 
   addCart(items) {
+    this.globalVariable.cart.push(items);
     items.quantityInCart += 1;
     items.sum = items.price*items.quantityInCart;
     let toast = this.toastCtrl.create({
@@ -136,10 +137,10 @@ export class Detail {
 
   add (id, title, img, quantityInCart, sum, price) {
     this.globalVariable.cartSumCount += 1;
-    console.log(this.globalVariable.cart=[[id],[title],[img],[quantityInCart], [sum], [price]]);
   }
   
   reduceCart(items) {
+    this.globalVariable.cart.splice(this.globalVariable.cart.indexOf(items), 1);
     items.quantityInCart -= 1;
     items.sum = items.price*items.quantityInCart;
     let toast = this.toastCtrl.create({
@@ -152,7 +153,6 @@ export class Detail {
 
   reduce (id, title, img, quantityInCart, sum, price) {
     this.globalVariable.cartSumCount -= 1;
-    console.log(this.globalVariable.cart=[[id],[title],[img],[quantityInCart], [sum], [price]]);
   }
 
   ionViewWillLeave() {
