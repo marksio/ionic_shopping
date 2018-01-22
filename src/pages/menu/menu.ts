@@ -40,8 +40,6 @@ export class Menu {
  
     // The active child nav is our Tabs Navigation
     if (this.nav.getActiveChildNavs() && page.index != undefined) {
-      console.log('this.nav.getActiveChildNavs()');
-      console.log(this.nav.getActiveChildNav());
       this.nav.getActiveChildNavs()[0].select(page.index);
     } else {
       // Tabs are not active, so reset the root page 

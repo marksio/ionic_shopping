@@ -39,7 +39,6 @@ export class Deal {
       {id: 10, img: 'http://lorempixel.com/209/209', title: 'iPhone', price: '3424', desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: []  }
     ];
     this.searchItems = this.items;
-    // this.navParams.get
   }
 
   addToCart(item){
@@ -80,9 +79,6 @@ export class Deal {
   viewItem(id, title, img, quantityInCart, sum, price) {
     this.navCtrl.push(Detail, { id: id, title: title, img:img ,quantityInCart: quantityInCart, sum: sum, price: price });
   }
-  // onLoadCart() {
-  //   this.navCtrl.push(Cart);
-  // }
 
   ionViewWillEnter() {
     if(this.globalVariable.quantityInCart > 0) {
@@ -100,24 +96,12 @@ export class Deal {
     }
   }
 
-  ionViewWillLeave() {
-    //console.log(this.globalVariable.cart.push([this.items.id],[this.items.title],[this.items.price],[this.items.sum],[]));
-    //this.globalVariable.itemId = this.items.id;
-  }
-
   getItems(event) {
     let searchCriteria = this.mySearchbar.value;
-    console.log('searchCriteria');
-    console.log(searchCriteria);
-    //let filtered = this.items.filter(a => a.title.includes(searchCriteria));
     let filtered = this.items.filter((item) => { 
       return ((item.title.toLowerCase().indexOf(searchCriteria.toLowerCase()) > -1)); 
     });
-
     this.searchItems = filtered;
-    console.log('my filtered array');
-    console.log(filtered);
-
   }
 
   applyCategoryFilter() {
