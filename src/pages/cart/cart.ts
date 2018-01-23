@@ -17,9 +17,9 @@ export class Cart {
 
   items: Object[] = []
   itemsInCart: Object[] = []
+  itemIndex: number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public globalVariable: globalVariable) {
-    globalVariable.cart
     // switch (id) {
     //   case 1 : {
     //     this.items = {id: 1, img: 'http://lorempixel.com/200/200', title: 'T-Shirt', price: 132, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "10% off", np: 135 };
@@ -63,5 +63,21 @@ export class Cart {
     //   }
     // }
   }
-
+  remove(item) {
+    this.globalVariable.cart.splice(this.globalVariable.cart.indexOf(item), 1);
+    this.globalVariable.cartSumCount-=1;
+    item.quantityInCart -= 1;
+    item.sum = item.price*item.quantityInCart;
+    this.globalVariable.sum-=item.price;
+    this.itemsInCart.push(item);
+  }
+  increment(item) {
+    item.quantityInCart += 1;
+    item.sum = item.price*item.quantityInCart;
+    let newCartItem = { itemID: item.id, id : this.itemIndex++, quantityInCart: item.quantityInCart, price: item.price };
+    this.globalVariable.sum+=item.price;
+    item.cart.push(newCartItem);
+    this.globalVariable.cart.push(item);
+    this.globalVariable.cartSumCount += 1;
+  }
 }

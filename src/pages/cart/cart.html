@@ -16,31 +16,27 @@
                     <img src="{{item.img}}">
                 </ion-thumbnail>
                 <h2>{{item.title}}</h2>
-                <p>Total</p>
-            
+                <p>{{item.currency}} {{item.price}}</p>
                 <button ion-button clear item-right (click)="increment(item)" >
-                    <ion-icon color="danger" style=" font-size: 25px;" name="ios-arrow-dropup-circle"></ion-icon>
+                    <ion-icon color="primary" style=" font-size: 25px;" name="ios-add-circle"></ion-icon>
                 </button>
-            
-                <button ion-button clear item-right (click)="decrement(item)" >
-                    <ion-icon color="danger" style=" font-size: 25px;" name="ios-arrow-dropdown-circle"></ion-icon>
-                </button>
-            
-                <button style=" font-size: 20px;" ion-button clear item-right (click)="remove(item)" >
-                    <ion-icon color="danger" name="ios-remove-circle"></ion-icon>
+                <button ion-button clear item-right (click)="remove(item)" >
+                    <ion-icon color="danger" style=" font-size: 25px;" name="ios-remove-circle"></ion-icon>
                 </button>
             </ion-item>
         
-            <ion-item *ngIf="globalVariable.cartSumCount>0">
-                <h2>Grand Total</h2> 
-                <h2 item-right >abc</h2>
+            <ion-item *ngIf="(globalVariable.cart).length>0">
+                <h2>Grand Total</h2>
+                <h2 item-right >
+                    RM {{globalVariable.sum}}
+                </h2>
             </ion-item>
             
-            <ion-item *ngIf="globalVariable.cartSumCount==0">
+            <ion-item *ngIf="(globalVariable.cart).length==0">
                 <h2 class="center">Cart is empty</h2>       
             </ion-item>
         
-            <button fixed ion-button icon-start block color="light" (click)="checkout()" *ngIf="globalVariable.cartSumCount>0">
+            <button fixed ion-button icon-start block color="light" (click)="alert('Thank You for shopping with us')" *ngIf="(globalVariable.cart).length>0">
                 <ion-icon name="ios-cart"></ion-icon>
                 Checkout
             </button>   

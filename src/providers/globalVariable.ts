@@ -9,13 +9,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class globalVariable {
   public cartSumCount : number;
-  //public cart : any[][][][][] = [[[[[]]]]];
   public cart : any[] = [];
   public itemId: number;
   public itemQuantity: number[];
   public itemSum: number[];
   public quantityInCart: number
-  public sum: number
+  public sum: number = 0;
   public items: any;
 
   constructor( ) {    
