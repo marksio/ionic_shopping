@@ -36,7 +36,7 @@
                 <h2 class="center">Cart is empty</h2>       
             </ion-item>
         
-            <button fixed ion-button icon-start block color="light" (click)="alert('Thank You for shopping with us')" *ngIf="(globalVariable.cart).length>0">
+            <button fixed ion-button icon-start block color="light" (click)="checkout()" *ngIf="(globalVariable.cart).length>0">
                 <ion-icon name="ios-cart"></ion-icon>
                 Checkout
             </button>   
