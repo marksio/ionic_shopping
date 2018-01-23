@@ -127,6 +127,7 @@ export class Detail {
     this.globalVariable.cart.push(items);
     items.quantityInCart += 1;
     items.sum = items.price*items.quantityInCart;
+    this.globalVariable.sum+=items.price;
     let toast = this.toastCtrl.create({
       message: 'Added to Cart',
       duration: 500,
@@ -143,6 +144,7 @@ export class Detail {
     this.globalVariable.cart.splice(this.globalVariable.cart.indexOf(items), 1);
     items.quantityInCart -= 1;
     items.sum = items.price*items.quantityInCart;
+    this.globalVariable.sum-=items.price;
     let toast = this.toastCtrl.create({
       message: 'Remove from Cart',
       duration: 500,

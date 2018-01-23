@@ -41,12 +41,12 @@
               </label>
           </ion-col>
           <ion-col>
-              <button (click)="addToCart(item); addGlobal(item.id, item.title, item.img, item.quantityInCart, item.sum, item.price)" ion-button icon-left small float-right value="{{item.id}}" style="z-index:9999;">
+              <button (click)="addToCart(item)" ion-button icon-left small float-right value="{{item.id}}">
                 <ion-icon name="add"></ion-icon>
                   Add to Cart
               </button>
               <ion-col *ngIf="item.quantityInCart > 0">
-                <button (click)="removeFromCart(item); reduceGlobal(item.id, item.title, item.img, item.quantityInCart, item.sum, item.price)" color="light" ion-button color="danger" small style="z-index:9999;">
+                <button (click)="removeFromCart(item)" color="light" ion-button color="danger" small>
                     <ion-icon name="close"></ion-icon> &nbsp;&nbsp; {{item.currency}} {{item.sum}} 
                 </button>
                 <ion-badge>{{item.quantityInCart}}</ion-badge>
