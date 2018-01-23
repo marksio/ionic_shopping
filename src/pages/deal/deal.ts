@@ -17,6 +17,7 @@ import { globalVariable } from '../../providers/globalVariable';
 })
 export class Deal {
   @ViewChild('mySearchbar') mySearchbar;
+  @ViewChild('myCate') myCate;
 
   items: any[] = []
   searchItems: any[] = [];
@@ -98,14 +99,16 @@ export class Deal {
     this.searchItems = filtered;
   }
 
-  // filterItems(searchTerm){
-  //   let filtered = this.items.filter((item) => { 
-  //       return ((item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1)); 
-  //   });
-  //   this.searchItems = filtered;
-  // }
-
-  applyCategoryFilter() {
-    
+  applyCategoryFilter(event) {
+    let searchCriteria = this.myCate.value;
+    if(searchCriteria!='all') {
+      let filtered = this.items.filter((item) => { 
+        return ((item.category.toLowerCase().indexOf(searchCriteria.toLowerCase()) > -1)); 
+      });
+      this.searchItems = filtered;
+    }
+    else {
+      this.searchItems = this.items;
+    }
   }
 }
