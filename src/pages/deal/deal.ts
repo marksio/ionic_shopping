@@ -76,19 +76,17 @@ export class Deal {
   }
 
   ionViewWillEnter() {
-    if(this.globalVariable.quantityInCart > 0) {
-      for(let i = 0; i < this.items.length; i++) {
-        let myItem: any = this.items[i];
-        if(myItem.id == this.globalVariable.itemId) {
-          myItem.quantityInCart = this.globalVariable.quantityInCart;
-          myItem.sum = myItem.price*myItem.quantityInCart;
-          this.items[i] = myItem;
-          break;
-        }
+    for(let i = 0; i < this.items.length; i++) {
+      let myItem: any = this.items[i];
+      if(myItem.id == this.globalVariable.itemId) {
+        myItem.quantityInCart = this.globalVariable.quantityInCart;
+        myItem.sum = myItem.price*myItem.quantityInCart;
+        this.items[i] = myItem;
+        break;
       }
-      this.globalVariable.quantityInCart = 0;
-      this.globalVariable.itemId = 0;
     }
+    this.globalVariable.quantityInCart = 0;
+    this.globalVariable.itemId = 0;    
   }
 
   getItems(event) {

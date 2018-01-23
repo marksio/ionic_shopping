@@ -20,14 +20,14 @@ export class Cart {
   itemIndex: number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public globalVariable: globalVariable) {
-    let cart = globalVariable.cart;
-    for(let i = 0; i < cart.length; i++) {
-      let cartid = cart[i].id;
-      let t = 0;
-      t+=i;
-      // globalVariable.cart[i] = cartid.merge("id", cart[i], cart[t]);
-      console.log(cartid.merge("id", cart[i], cart[t]));
-    }
+    // let cart = globalVariable.cart;
+    // for(let i = 0; i < cart.length; i++) {
+    //   let cartid = cart[i].id;
+    //   let t = 0;
+    //   t+=i;
+    //   // globalVariable.cart[i] = cartid.merge("id", cart[i], cart[t]);
+    //   console.log(cartid.merge("id", cart[i], cart[t]));
+    // }
     
   }
   remove(item) {

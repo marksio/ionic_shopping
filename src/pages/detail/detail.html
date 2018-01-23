@@ -30,13 +30,13 @@
         </ion-card-content>
       </ion-card>
       <ion-col *ngIf="items.quantityInCart">
-        <button (click)="reduceCart(items); reduce(items.id, items.title, items.img, items.quantityInCart, items.sum, items.price)" color="light" ion-button color="danger" small style="z-index:9999;">
+        <button (click)="reduceCart(items)" color="light" ion-button color="danger" small style="z-index:9999;">
             <ion-icon name="close"></ion-icon> &nbsp;&nbsp; {{items.currency}} {{items.sum}} 
         </button>
         <ion-badge>{{items.quantityInCart}}</ion-badge>
       </ion-col>
   
-      <ion-fab right bottom (click)="addCart(items); add(items.id, items.title, items.img, items.quantityInCart, items.sum, items.price)">
+      <ion-fab right bottom (click)="addCart(items)">
         <button ion-fab color="primary"><ion-icon name="ios-add" ></ion-icon></button>
       </ion-fab>
   </ion-content>  
