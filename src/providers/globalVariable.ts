@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 export class globalVariable {
   public cartSumCount : number;
   public cart : any[] = [];
+  public cartSort : any[] = [];
   public itemId: number;
   public itemQuantity: number[];
   public itemSum: number[];
