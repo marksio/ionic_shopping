@@ -15,14 +15,22 @@ import * as _ from 'lodash';
   templateUrl: 'cart.html',
 })
 export class Cart {
-
   items: Object[] = []
   itemsInCart: Object[] = []
   itemIndex: number = 0;
   sortedCart: any[] = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public globalVariable: globalVariable) {
-    
-    
+    this.globalVariable.cartSort = [];
+    this.sortedCart = _.sortBy(this.globalVariable.cart, 'id'); 
+    let previousCartItem: any = { id: 0 };
+    for(let i = 0; i < this.sortedCart.length; i++) {
+      if (this.sortedCart[i].id != previousCartItem.id) {
+  
+        this.globalVariable.cartSort.push(this.sortedCart[i]);
+        console.log(this.globalVariable.cartSort);
+      }
+      previousCartItem = this.sortedCart[i];
+    }
   }
   remove(item) {
     this.globalVariable.cart.splice(this.globalVariable.cart.indexOf(item), 1);
@@ -44,38 +52,5 @@ export class Cart {
   checkout () {
     alert('Thank You for shopping with us');
     location.reload();
-  }
-
-  ionViewWillEnter() {
-    this.globalVariable.cartSort = [];
-    console.log('this.globalVariable.cart');
-    console.log(this.globalVariable.cart);
-    this.sortedCart = _.sortBy(this.globalVariable.cart, 'id'); 
-    console.log('sortedCart');
-    console.log(this.sortedCart);
-    let previousCartItem: any = { id: 0 };
-    // let cartid: number = 0;
-      for(let i = 0; i < this.sortedCart.length; i++) {
-        console.log('sortedCart[i]');
-        console.log(this.sortedCart[i]);
-        console.log('previousCartItem.id');
-        console.log(previousCartItem.id);
-        if (this.sortedCart[i].id != previousCartItem.id) {
-
-          //if(previousCartItem.id > 0) {
-            console.log('pushing...');
-            console.log(previousCartItem);
-            this.globalVariable.cartSort.push(previousCartItem);
-          //}
-        }
-        previousCartItem = this.sortedCart[i];
-        
-        //cartid = sortedCart[i];
-        //sortedCart[i].quantityInCart += 1;
-            
-        
-        // globalVariable.cart[i] = cartid.merge("id", cart[i], cart[t]);
-        //console.log(cartid.merge("id", globalVariable.cart[i], globalVariable.cart[t]));
-      }
   }
 }
