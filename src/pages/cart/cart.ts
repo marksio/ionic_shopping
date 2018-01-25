@@ -20,17 +20,7 @@ export class Cart {
   itemIndex: number = 0;
   sortedCart: any[] = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public globalVariable: globalVariable) {
-    this.globalVariable.cartSort = [];
-    this.sortedCart = _.sortBy(this.globalVariable.cart, 'id'); 
-    let previousCartItem: any = { id: 0 };
-    for(let i = 0; i < this.sortedCart.length; i++) {
-      if (this.sortedCart[i].id != previousCartItem.id) {
-  
-        this.globalVariable.cartSort.push(this.sortedCart[i]);
-        console.log(this.globalVariable.cartSort);
-      }
-      previousCartItem = this.sortedCart[i];
-    }
+    
   }
   remove(item) {
     this.globalVariable.cart.splice(this.globalVariable.cart.indexOf(item), 1);
@@ -38,7 +28,7 @@ export class Cart {
     item.quantityInCart -= 1;
     item.sum = item.price*item.quantityInCart;
     this.globalVariable.sum-=item.price;
-    this.itemsInCart.push(item);
+    this.itemsInCart.push(item);    
   }
   increment(item) {
     item.quantityInCart += 1;
@@ -52,5 +42,16 @@ export class Cart {
   checkout () {
     alert('Thank You for shopping with us');
     location.reload();
+  }
+  ionViewWillEnter() {
+    this.globalVariable.cartSort = [];
+    this.sortedCart = _.sortBy(this.globalVariable.cart, 'id'); 
+    let previousCartItem: any = { id: 0 };
+    for(let i = 0; i < this.sortedCart.length; i++) {
+      if (this.sortedCart[i].id != previousCartItem.id) {
+        this.globalVariable.cartSort.push(this.sortedCart[i]);
+      }
+      previousCartItem = this.sortedCart[i];
+    }
   }
 }
