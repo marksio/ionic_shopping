@@ -17,10 +17,10 @@
                 </ion-thumbnail>
                 <h2>{{item.title}}</h2>
                 <p>{{item.price}} * {{item.quantityInCart}} = {{item.currency}} {{item.sum}}</p>
-                <button ion-button clear item-right (click)="increment(item)" >
+                <button ion-button clear item-right (click)="increment(item)">
                     <ion-icon color="primary" style=" font-size: 25px;" name="ios-add-circle"></ion-icon>
                 </button>
-                <button ion-button clear item-right (click)="remove(item)" >
+                <button ion-button clear item-right (click)="remove(item)">
                     <ion-icon color="danger" style=" font-size: 25px;" name="ios-remove-circle"></ion-icon>
                 </button>
             </ion-item>
