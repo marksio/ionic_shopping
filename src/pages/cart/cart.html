@@ -16,7 +16,7 @@
                     <img src="{{item.img}}">
                 </ion-thumbnail>
                 <h2>{{item.title}}</h2>
-                <p>{{item.currency}} {{item.price}} X {{item.quantityInCart}} = {{item.currency}} {{item.price}}</p>
+                <p>{{item.price}} * {{item.quantityInCart}} = {{item.currency}} {{item.sum}}</p>
                 <button ion-button clear item-right (click)="increment(item)" >
                     <ion-icon color="primary" style=" font-size: 25px;" name="ios-add-circle"></ion-icon>
                 </button>
