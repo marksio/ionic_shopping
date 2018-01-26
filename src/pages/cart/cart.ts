@@ -19,16 +19,25 @@ export class Cart {
   itemsInCart: Object[] = []
   itemIndex: number = 0;
   sortedCart: any[] = [];
+  empty: any[] = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public globalVariable: globalVariable) {
     
   }
   remove(item) {
-    this.globalVariable.cart.splice(this.globalVariable.cart.indexOf(item), 1);
-    this.globalVariable.cartSumCount-=1;
-    item.quantityInCart -= 1;
-    item.sum = item.price*item.quantityInCart;
-    this.globalVariable.sum-=item.price;
-    this.itemsInCart.push(item);    
+    // let searchCriteria = this.globalVariable.cart;
+    // let filtered = this.globalVariable.cart.filter((item) => { 
+    //   return ((this.globalVariable.cart.indexOf(searchCriteria) > -1)); 
+    // });
+    // if(filtered == this.empty) {
+    //   alert('Thank You for shopping with us');
+    // } else {
+      this.globalVariable.cart.splice(this.globalVariable.cart.indexOf(item), 1);
+      this.globalVariable.cartSumCount-=1;
+      item.quantityInCart -= 1;
+      item.sum = item.price*item.quantityInCart;
+      this.globalVariable.sum-=item.price;
+      this.itemsInCart.push(item);
+    // }    
   }
   increment(item) {
     item.quantityInCart += 1;
