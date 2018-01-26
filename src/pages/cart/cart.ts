@@ -48,6 +48,9 @@ export class Cart {
     this.globalVariable.cart.push(item);
     this.globalVariable.cartSumCount += 1;
   }
+  // pop(value) {
+  //   alert(value);
+  // }
   checkout () {
     alert('Thank You for shopping with us');
     location.reload();
