@@ -20,23 +20,23 @@
                 <button ion-button clear item-right (click)="increment(item)">
                     <ion-icon color="primary" style=" font-size: 25px;" name="ios-add-circle"></ion-icon>
                 </button>
-                <button ion-button clear item-right (click)="remove(item)">
+                <button ion-button clear item-right (click)="remove(item)" *ngIf="item.quantityInCart>0">
                     <ion-icon color="danger" style=" font-size: 25px;" name="ios-remove-circle"></ion-icon>
                 </button>
             </ion-item>
         
-            <ion-item *ngIf="(globalVariable.cart).length>0">
+            <ion-item *ngIf="globalVariable.sum>0">
                 <h2>Grand Total</h2>
                 <h2 item-right >
                     RM {{globalVariable.sum}}
                 </h2>
             </ion-item>
             
-            <ion-item *ngIf="(globalVariable.cart).length==0">
+            <ion-item *ngIf="globalVariable.sum==0">
                 <h2 class="center">Cart is empty</h2>       
             </ion-item>
         
-            <button fixed ion-button icon-start block color="light" (click)="checkout()" *ngIf="(globalVariable.cart).length>0">
+            <button fixed ion-button icon-start block color="light" (click)="checkout()" *ngIf="globalVariable.sum>0">
                 <ion-icon name="ios-cart"></ion-icon>
                 Checkout
             </button>   
