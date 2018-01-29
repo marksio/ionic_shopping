@@ -26,16 +26,16 @@ export class Deal {
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public globalVariable : globalVariable ) {
     
     this.items = [
-      {id: 1, img: 'http://lorempixel.com/200/200', title: 'T-Shirt', price: 132, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "10% off", np: "135", cart: [], category: "grocery" },
-      {id: 2, img: 'http://lorempixel.com/201/201', title: 'Smart Phone', price: 1699, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "Buy 3 Free 1", np: "", cart: [], category: "it"  },
-      {id: 3, img: 'http://lorempixel.com/202/202', title: 'Camera', price: 123, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: [], category: "it"  },
-      {id: 4, img: 'http://lorempixel.com/203/203', title: 'T-Shirt', price: 132, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "15% off", np: "145", cart: [], category: "grocery"  },
-      {id: 5, img: 'http://lorempixel.com/204/204', title: 'Smart Phone', price: 1699, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: [], category: "it"  },
-      {id: 6, img: 'http://lorempixel.com/205/205', title: 'Camera', price: 123, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "30% off", np: "160", cart: [], category: "it"  },
-      {id: 7, img: 'http://lorempixel.com/206/206', title: 'T-Shirt', price: 132, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: [], category: "grocery"  },
-      {id: 8, img: 'http://lorempixel.com/207/207', title: 'Smart Phone', price: 1699, desc: 'Very Good', currency: "RM" , quantityInCart: 0, sum: 0, promo: "Buy 1 Free 1", np: "", cart: [], category: "it"  },
-      {id: 9, img: 'http://lorempixel.com/208/208', title: 'Camera', price: 123, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: [], category: "it"  },
-      {id: 10, img: 'http://lorempixel.com/209/209', title: 'iPhone', price: 3424, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: [], category: "it"  }
+      {id: 1, img: 'http://lorempixel.com/1000/1000', title: 'T-Shirt', price: 132, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "10% off", np: "135", cart: [], category: "grocery" },
+      {id: 2, img: 'http://lorempixel.com/1001/1001', title: 'Smart Phone', price: 1699, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "Buy 3 Free 1", np: "", cart: [], category: "it"  },
+      {id: 3, img: 'http://lorempixel.com/1002/1002', title: 'Camera', price: 123, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: [], category: "it"  },
+      {id: 4, img: 'http://lorempixel.com/1003/1003', title: 'T-Shirt', price: 132, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "15% off", np: "145", cart: [], category: "grocery"  },
+      {id: 5, img: 'http://lorempixel.com/1004/1004', title: 'Smart Phone', price: 1699, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: [], category: "it"  },
+      {id: 6, img: 'http://lorempixel.com/1005/1005', title: 'Camera', price: 123, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "30% off", np: "160", cart: [], category: "it"  },
+      {id: 7, img: 'http://lorempixel.com/1006/1006', title: 'T-Shirt', price: 132, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: [], category: "grocery"  },
+      {id: 8, img: 'http://lorempixel.com/1007/1007', title: 'Smart Phone', price: 1699, desc: 'Very Good', currency: "RM" , quantityInCart: 0, sum: 0, promo: "Buy 1 Free 1", np: "", cart: [], category: "it"  },
+      {id: 9, img: 'http://lorempixel.com/1008/1008', title: 'Camera', price: 123, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: [], category: "it"  },
+      {id: 10, img: 'http://lorempixel.com/1009/1009', title: 'iPhone', price: 3424, desc: 'Very Good', currency: "RM", quantityInCart: 0, sum: 0, promo: "", np: "", cart: [], category: "it"  }
     ];
     this.searchItems = this.items;
   }
