@@ -12,7 +12,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 
 import { HttpModule } from '@angular/http';
-import { Firebase } from '../providers/firebase';
 
 // for AngularFireAuth
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -26,6 +25,11 @@ import { Detail } from '../pages/detail/detail';
 import { Deal } from '../pages/deal/deal';
 import { globalVariable } from '../providers/globalVariable';
 
+class MyErrorHandler implements ErrorHandler {
+  handleError(err: any): void {
+    // do something with the error
+  }
+}
 
 @NgModule({
   declarations: [
@@ -40,17 +44,7 @@ import { globalVariable } from '../providers/globalVariable';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    IonicImageViewerModule,
-    AngularFireModule.initializeApp({         //<----ENTER FIREBASE CREDENTIAL HERE
-      apiKey: "AIzaSyDj0up1H3dpAJSdcWe4bq2eAG6QNTY1e7k",
-      authDomain: "shopping-215.firebaseapp.com",
-      databaseURL: "https://shopping-215.firebaseio.com",
-      projectId: "shopping-215",
-      storageBucket: "shopping-215.appspot.com",
-      messagingSenderId: "72073823415"
-    }),                                       
-    AngularFireDatabaseModule,                
-    AngularFireAuthModule
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -64,7 +58,6 @@ import { globalVariable } from '../providers/globalVariable';
   providers: [
     StatusBar,
     SplashScreen,
-    Firebase,
     globalVariable,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
