@@ -31,7 +31,7 @@
               </ion-thumbnail>
           </ion-col>
           <ion-col (click)="viewItem(item.id, item.title, item.img, item.quantityInCart, item.sum, item.price)">
-              <h1>{{item.title}}</h1>
+              <h1>{{item.name}}</h1>
               <h2>{{item.currency}} {{item.price}}</h2>
               <label *ngIf="item.promo">
                   {{item.promo}}<br/>
