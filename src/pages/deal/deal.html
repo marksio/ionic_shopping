@@ -25,12 +25,12 @@
     <ion-item>
       <ion-grid>
         <ion-row>
-          <ion-col (click)="viewItem(item.id, item.title, item.img, item.quantityInCart, item.sum, item.price)">
+          <ion-col (click)="viewItem(item.id, item.name, item.img, item.quantityInCart, item.sum, item.price, item.des, item.np, item.promo)">
               <ion-thumbnail item-start>
                 <img src="{{item.img}}" height="auto" width="auto" />
               </ion-thumbnail>
           </ion-col>
-          <ion-col (click)="viewItem(item.id, item.title, item.img, item.quantityInCart, item.sum, item.price)">
+          <ion-col (click)="viewItem(item.id, item.name, item.img, item.quantityInCart, item.sum, item.price, item.des, item.np, item.promo)">
               <h1>{{item.name}}</h1>
               <h2>{{item.currency}} {{item.price}}</h2>
               <label *ngIf="item.promo">

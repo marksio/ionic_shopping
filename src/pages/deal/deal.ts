@@ -21,10 +21,11 @@ export class Deal {
   @ViewChild('mySearchbar') mySearchbar;
   @ViewChild('myCate') myCate;
 
-  items: any[] = []
+  // items: any[] = [];
   searchItems: any[] = [];
-  itemsInCart: Object[] = []
+  itemsInCart: Object[] = [];
   itemIndex: number = 0;
+  obj : any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public globalVariable : globalVariable, public http: Http ) {
     let headers: Headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -34,8 +35,8 @@ export class Deal {
     let body = '';
     let globalHTTPGetInstance = this.http.get(url).subscribe((data) => {      
       var mydata: any = data;      
-      var obj = JSON.parse(mydata._body);
-      this.searchItems = obj;
+      this.obj = JSON.parse(mydata._body);
+      this.searchItems = this.obj;
     });
 
     // this.items = [
@@ -89,12 +90,12 @@ export class Deal {
   }
 
   ionViewWillEnter() {
-    for(let i = 0; i < this.items.length; i++) {
-      let myItem: any = this.items[i];
+    for(let i = 0; i < this.obj.length; i++) {
+      let myItem: any = this.obj[i];
       if(myItem.id == this.globalVariable.itemId) {
         myItem.quantityInCart = this.globalVariable.quantityInCart;
         myItem.sum = myItem.price*myItem.quantityInCart;
-        this.items[i] = myItem;
+        this.obj[i] = myItem;
         break;
       }
     }
@@ -104,7 +105,7 @@ export class Deal {
 
   getItems(event) {
     let searchCriteria = this.mySearchbar.value;
-    let filtered = this.items.filter((item) => { 
+    let filtered = this.obj.filter((item) => { 
       return ((item.title.toLowerCase().indexOf(searchCriteria.toLowerCase()) > -1)); 
     });
     this.searchItems = filtered;
@@ -113,13 +114,13 @@ export class Deal {
   applyCategoryFilter(event) {
     let searchCriteria = this.myCate.value;
     if(searchCriteria!='all') {
-      let filtered = this.items.filter((item) => { 
+      let filtered = this.obj.filter((item) => { 
         return ((item.category.toLowerCase().indexOf(searchCriteria.toLowerCase()) > -1)); 
       });
       this.searchItems = filtered;
     }
     else {
-      this.searchItems = this.items;
+      this.searchItems = this.obj;
     }
   }
 }
