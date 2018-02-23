@@ -84,9 +84,9 @@ export class Deal {
     });
     toast.present();
   }
-  
-  viewItem(id, title, img, quantityInCart, sum, price) {
-    this.navCtrl.push(Detail, { id: id, title: title, img:img ,quantityInCart: quantityInCart, sum: sum, price: price });
+
+  viewItem(id, name, img, quantityInCart, sum, price, des, np, promo, currency) {
+    this.navCtrl.push(Detail, { id: id, title: name, img:img ,quantityInCart: quantityInCart, sum: sum, price: price, desc: des, np:np, promo: promo, currency: currency });
   }
 
   ionViewWillEnter() {
