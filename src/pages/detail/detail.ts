@@ -29,53 +29,12 @@ export class Detail {
     let title = navParams.get('title');
     let img = navParams.get('img');
     let price = navParams.get('price');
-    let des = navParams.get('des');
+    let desc = navParams.get('desc');
     let promo = navParams.get('promo');
     let np = navParams.get('np');
+    let currency = navParams.get('currency');
     
-    // allItem(id);
-    switch (id) {
-      case 1 : {
-        this.items = {id: 1, img: img, title: name, price: price, desc: des, currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: promo, np: np };
-        break;
-      }
-      case 2 : {
-        this.items = {id: 2, img: img, title: name, price: price, desc: des, currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: promo, np: np };
-        break;
-      }
-      case 3 : {
-        this.items = {id: 3, img: img, title: name, price: price, desc: des, currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: promo, np: np };
-        break;
-      }
-      case 4 : {
-        this.items = {id: 4, img: img, title: name, price: price, desc: des, currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: promo, np: np };
-        break;
-      }
-      case 5 : {
-        this.items = {id: 5, img: img, title: name, price: price, desc: des, currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: promo, np: np };
-        break;
-      }
-      case 6 : {
-        this.items = {id: 6, img: img, title: name, price: price, desc: des, currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: promo, np: np };
-        break;
-      }
-      case 7 : {
-        this.items = {id: 7, img: img, title: name, price: price, desc: des, currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: promo, np: np };
-        break;
-      }
-      case 8 : {
-        this.items = {id: 8, img: img, title: name, price: price, desc: des, currency: "RM" , quantityInCart: quantityInCart, sum: sum, promo: promo, np: np };
-        break;
-      }
-      case 9 : {
-        this.items = {id: 9, img: img, title: name, price: price, desc: des, currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: promo, np: np };
-        break;
-      }
-      case 10 : {
-        this.items = {id: 10, img: img, title: name, price: price, desc: des, currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: promo, np: np };
-        break;
-      }
-    }
+    this.items = {id: id, img: img, title: title, price: price, desc: desc, currency: currency, quantityInCart: quantityInCart, sum: sum, promo: promo, np: np };
 
     // let headers: Headers = new Headers();
     // headers.append('Content-Type', 'application/x-www-form-urlencoded');
