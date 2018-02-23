@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { HttpModule, Http } from '@angular/http';
 import { globalVariable } from '../../providers/globalVariable';
 import { ImageViewerController } from "ionic-img-viewer";
 import { ToastController } from 'ionic-angular';
@@ -21,57 +22,69 @@ export class Detail {
   itemsInCart: Object[] = []
   itemIndex: number = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public globalVariable: globalVariable, public imageViewerCtrl: ImageViewerController) {//, public imageViewerCtrl: ImageViewerController) {
-    let id = navParams.get('id');
-    let quantityInCart = navParams.get('quantityInCart');
-    let sum = navParams.get('sum');
-    let title = navParams.get('title');
-    let img = navParams.get('img');
-    let price = navParams.get('price');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public globalVariable: globalVariable, public imageViewerCtrl: ImageViewerController, public http: Http) {//, public imageViewerCtrl: ImageViewerController) {
+    // let id = navParams.get('id');
+    // let quantityInCart = navParams.get('quantityInCart');
+    // let sum = navParams.get('sum');
+    // let title = navParams.get('title');
+    // let img = navParams.get('img');
+    // let price = navParams.get('price');
     
-    // allItem(id);
-    switch (id) {
-      case 1 : {
-        this.items = {id: 1, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "10% off", np: 135 };
-        break;
-      }
-      case 2 : {
-        this.items = {id: 2, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "Buy 3 Free 1", np: "" };
-        break;
-      }
-      case 3 : {
-        this.items = {id: 3, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "", np: "" };
-        break;
-      }
-      case 4 : {
-        this.items = {id: 4, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "15% off", np: "145" };
-        break;
-      }
-      case 5 : {
-        this.items = {id: 5, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "", np: "" };
-        break;
-      }
-      case 6 : {
-        this.items = {id: 6, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "30% off", np: "160" };
-        break;
-      }
-      case 7 : {
-        this.items = {id: 7, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "", np: "" };
-        break;
-      }
-      case 8 : {
-        this.items = {id: 8, img: img, title: title, price: price, desc: 'Very Good', currency: "RM" , quantityInCart: quantityInCart, sum: sum, promo: "Buy 1 Free 1", np: "" };
-        break;
-      }
-      case 9 : {
-        this.items = {id: 9, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "", np: "" };
-        break;
-      }
-      case 10 : {
-        this.items = {id: 10, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "", np: "" };
-        break;
-      }
-    }
+    // // allItem(id);
+    // switch (id) {
+    //   case 1 : {
+    //     this.items = {id: 1, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "10% off", np: 135 };
+    //     break;
+    //   }
+    //   case 2 : {
+    //     this.items = {id: 2, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "Buy 3 Free 1", np: "" };
+    //     break;
+    //   }
+    //   case 3 : {
+    //     this.items = {id: 3, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "", np: "" };
+    //     break;
+    //   }
+    //   case 4 : {
+    //     this.items = {id: 4, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "15% off", np: "145" };
+    //     break;
+    //   }
+    //   case 5 : {
+    //     this.items = {id: 5, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "", np: "" };
+    //     break;
+    //   }
+    //   case 6 : {
+    //     this.items = {id: 6, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "30% off", np: "160" };
+    //     break;
+    //   }
+    //   case 7 : {
+    //     this.items = {id: 7, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "", np: "" };
+    //     break;
+    //   }
+    //   case 8 : {
+    //     this.items = {id: 8, img: img, title: title, price: price, desc: 'Very Good', currency: "RM" , quantityInCart: quantityInCart, sum: sum, promo: "Buy 1 Free 1", np: "" };
+    //     break;
+    //   }
+    //   case 9 : {
+    //     this.items = {id: 9, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "", np: "" };
+    //     break;
+    //   }
+    //   case 10 : {
+    //     this.items = {id: 10, img: img, title: title, price: price, desc: 'Very Good', currency: "RM", quantityInCart: quantityInCart, sum: sum, promo: "", np: "" };
+    //     break;
+    //   }
+    // }
+
+    let headers: Headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    headers.append('Access-Control-Allow-Origin', '*');
+
+    let url = 'http://localhost/AngularJS-MVC-WebAPI-Fetch/api/student/GetStudents';
+    let body = '';
+    let globalHTTPGetInstance = this.http.get(url).subscribe((data) => {      
+      var mydata: any = data;      
+      var obj = JSON.parse(mydata._body);
+      this.items = obj;
+    });
   }
 
   onClick(imageToView) {
